@@ -41,7 +41,13 @@ const Card11: FC<Card11Props> = ({
 			onMouseLeave={() => setIsHover(false)}
 			//
 		>
-			
+			<div
+				className={`relative z-10 block w-full flex-shrink-0 overflow-hidden rounded-t-3xl ${ratio}`}
+			>
+				<div>
+					<PostFeaturedMedia post={post} isHover={isHover} />
+				</div>
+			</div>
 			<Link href={uri || ''} className="absolute inset-0"></Link>
 			<span className="absolute inset-x-3 top-3 z-10">
 				<CategoryBadgeList categories={categories?.nodes || []} />
