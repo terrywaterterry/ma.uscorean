@@ -43,11 +43,16 @@ const Card11: FC<Card11Props> = ({
 		>
 			
 			<Link href={uri || ''} className="absolute inset-0"></Link>
-			<span className="absolute inset-x-3 top-3 z-10">
-				<CategoryBadgeList categories={categories?.nodes || []} />
-			</span>
+			
+
+
 
 			<div className="flex flex-1 flex-col space-y-3 rounded-3xl border border-neutral-100 px-3.5 py-4 dark:border-neutral-800">
+
+<CategoryBadgeList
+	categories={categories?.nodes || []}
+	className="mb-1"
+/>
 
 				{!hiddenAuthor ? (
 					<PostCardMeta meta={{ author, date }} />
