@@ -149,7 +149,7 @@ export default {
 	Cancel: 'Cancel',
 	Apply: 'Apply',
 	Image: 'Image',
-	Create: '글쓰기',
+	Create: 'Create',
 	'Please wait a moment, data is being prepared.':
 		'Please wait a moment, data is being prepared.',
 	'Edit profile': 'Edit profile',
