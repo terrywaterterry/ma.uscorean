@@ -1,3 +1,24 @@
+import { useEffect } from "react";
+
+export default function PostContent({ html }) {
+
+  useEffect(() => {
+    const containers = document.querySelectorAll(".bsa-pro-container");
+
+    containers.forEach(container => {
+      const scripts = container.getElementsByTagName("script");
+
+      Array.from(scripts).forEach(oldScript => {
+        const newScript = document.createElement("script");
+        newScript.text = oldScript.text;
+        document.body.appendChild(newScript);
+      });
+    });
+  }, []);
+
+  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
 import React, { FC } from 'react'
 import CategoryBadgeList from '@/components/CategoryBadgeList/CategoryBadgeList'
 import SingleTitle from './SingleTitle'
