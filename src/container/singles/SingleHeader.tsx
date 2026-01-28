@@ -6,6 +6,9 @@ import SingleMetaAction2 from './SingleMetaAction2'
 import { getPostDataFromPostFragment } from '@/utils/getPostDataFromPostFragment'
 import { FragmentTypePostFullFields } from '../type'
 
+// PostContent import
+import { PostContent } from './PostContent'
+
 export interface SingleHeaderProps {
 	hiddenDesc?: boolean
 	titleMainClass?: string
@@ -29,19 +32,14 @@ const SingleHeader: FC<SingleHeaderProps> = ({
 		uri,
 	} = getPostDataFromPostFragment(post || {})
 
+	// HTML 태그 제거 함수
+	const stripHtml = (html: string) => html.replace(/<[^>]*>/g, '')
 
-
-
-
-// HTML 태그 제거 함수
-const stripHtml = (html: string) => {
-	return html.replace(/<[^>]*>/g, '')
-}
-
-// 글자 수 제한
-const truncatedExcerpt = excerpt
-	? stripHtml(excerpt).slice(0, 100) + (stripHtml(excerpt).length > 100 ? '...' : '')
-	: ''
+	// 글자 수 제한
+	const truncatedExcerpt = excerpt
+		? stripHtml(excerpt).slice(0, 100) +
+		  (stripHtml(excerpt).length > 100 ? '...' : '')
+		: ''
 
 	return (
 		<>
@@ -52,23 +50,18 @@ const truncatedExcerpt = excerpt
 						categories={categories?.nodes || []}
 					/>
 					<SingleTitle mainClass={titleMainClass} title={title || ''} />
+
 					{!hiddenDesc && (
-						
-// 글자 수 제한
-
-<div
-	className="max-w-screen-md break-words pb-1 text-base text-neutral-500 lg:text-lg dark:text-neutral-400"
->
-	{truncatedExcerpt}
-</div>
-//
-
-
-
-
-
+						<div className="max-w-screen-md break-words pb-1 text-base text-neutral-500 lg:text-lg dark:text-neutral-400">
+							{truncatedExcerpt}
+						</div>
 					)}
+
+					{/* 광고 + 본문 렌더링 */}
+					<PostContent html={post.content?.rendered || ''} />
+
 					<div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
+
 					<div className="flex flex-wrap justify-between gap-5 sm:items-end">
 						<PostMeta2
 							size="large"
