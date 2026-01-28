@@ -43,13 +43,6 @@ const SingleHeader: FC<SingleHeaderProps> = ({
 							dangerouslySetInnerHTML={{ __html: excerpt }}
 							className="max-w-screen-md break-words pb-1 text-base text-neutral-500 lg:text-lg dark:text-neutral-400"
 						></div>
-
-
-<div
-	className="max-w-screen-md break-words pb-1 text-base text-neutral-500 lg:text-lg dark:text-neutral-400"
->
-	{truncatedExcerpt}
-</div>
 					)}
 					<div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
 					<div className="flex flex-wrap justify-between gap-5 sm:items-end">
