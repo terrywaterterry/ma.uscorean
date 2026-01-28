@@ -1,28 +1,23 @@
-import WidgetRecentPosts from '@/components/WidgetRecentPosts/WidgetRecentPosts'
 import { TCategoryCardFull } from '@/components/CardCategory1/CardCategory1'
 import WidgetAddSubscriberForm from '@/components/WidgetAddSubscriberForm/WidgetAddSubscriberForm'
 import WidgetCategories from '@/components/WidgetCategories/WidgetCategories'
 import WidgetSocialsFollow from '@/components/WidgetSocialsFollow/WidgetSocialsFollow'
 import React, { FC } from 'react'
-import { Post } from '@/types/Post' // Post 타입 따로 관리하면 좋음
 
 export interface SidebarProps {
 	className?: string
 	categories: TCategoryCardFull[] | null
-	recentPosts?: Post[] // 👈 optional
 }
 
 export const Sidebar: FC<SidebarProps> = ({
 	className = 'space-y-6 ',
 	categories,
-	recentPosts = [], // 👈 기본값 빈 배열
 }) => {
 	return (
 		<div className={`nc-SingleSidebar lg:sticky lg:top-24 ${className}`}>
 			<WidgetAddSubscriberForm />
-			<WidgetSocialsFollow />
 
-			<WidgetRecentPosts posts={recentPosts} />
+			<WidgetSocialsFollow />
 
 			<WidgetCategories categories={categories || []} />
 		</div>
