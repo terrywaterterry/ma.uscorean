@@ -1,3 +1,5 @@
+import { PostContent } from './PostContent';
+
 import { useEffect } from "react";
 
 export default function PostContent({ html }) {
@@ -78,6 +80,20 @@ const truncatedExcerpt = excerpt
 >
 	{truncatedExcerpt}
 </div>
+
+// 광고 관련
+{!hiddenDesc && (
+  <div className="max-w-screen-md break-words pb-1 text-base text-neutral-500 lg:text-lg dark:text-neutral-400">
+    {truncatedExcerpt}
+  </div>
+)}
+
+// 광고 + 포스트 본문
+<PostContent html={post.content?.rendered || ''} />
+
+
+
+
 
 
 					)}
