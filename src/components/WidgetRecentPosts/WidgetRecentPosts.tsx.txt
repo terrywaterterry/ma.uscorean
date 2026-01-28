@@ -1,0 +1,26 @@
+import Link from 'next/link'
+import { FC } from 'react'
+
+interface Post {
+  id: number
+  title: string
+  slug: string
+  createdAt: string
+}
+
+const WidgetRecentPosts: FC<{ posts: Post[] }> = ({ posts }) => {
+  return (
+    <div className="nc-WidgetRecentPosts">
+      <h2 className="text-lg font-semibold mb-4">Recent Posts</h2>
+      <ul className="space-y-3">
+        {posts.slice(0, 20).map(post => (
+          <li key={post.id}>
+            <Link href={`/post/${post.slug}`}>{post.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default WidgetRecentPosts

@@ -1,3 +1,4 @@
+import WidgetRecentPosts from '@/components/WidgetRecentPosts/WidgetRecentPosts'
 import { TCategoryCardFull } from '@/components/CardCategory1/CardCategory1'
 import WidgetAddSubscriberForm from '@/components/WidgetAddSubscriberForm/WidgetAddSubscriberForm'
 import WidgetCategories from '@/components/WidgetCategories/WidgetCategories'
@@ -18,6 +19,8 @@ export const Sidebar: FC<SidebarProps> = ({
 			<WidgetAddSubscriberForm />
 
 			<WidgetSocialsFollow />
+
+			<WidgetRecentPosts posts={recentPosts} />
 
 			<WidgetCategories categories={categories || []} />
 		</div>
