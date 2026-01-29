@@ -1,10 +1,18 @@
-'use client';
+'use client'
+
+import React from 'react'
 
 interface PostContentProps {
-  html: string;
+  html: string
 }
 
 export const PostContent: React.FC<PostContentProps> = ({ html }) => {
-  // 단순히 HTML 렌더링만
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
-};
+  if (!html) return null
+
+  return (
+    <div
+      className="nc-PostContent prose prose-neutral dark:prose-invert max-w-none"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  )
+}
