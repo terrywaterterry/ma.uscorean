@@ -25,6 +25,7 @@ const SingleHeader: FC<SingleHeaderProps> = ({
 	const {
 		title,
 		excerpt,
+		content,
 		ncPostMetaData,
 		categories,
 		commentCount,
@@ -58,7 +59,7 @@ const SingleHeader: FC<SingleHeaderProps> = ({
 					)}
 
 					{/* 광고 + 본문 렌더링 */}
-					<PostContent html={post.content?.rendered || ''} />
+					<PostContent html={content || ''} />
 
 					<div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
 
